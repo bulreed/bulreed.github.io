@@ -1,0 +1,16 @@
+markdown: rdiscount
+permalink: /:title/
+url: http://bulreed.github.io
+name: bulreed
+author: bulreed
+qq: 
+email: bulreed@gmail.com
+duoshuo: bulreed
+beian: 
+cnzz: 
+weibo: bulreed
+github: bulreed
+highlighter: pygments
+paginate: 20
+truncate: 300
+about: "一个软件从业人员"

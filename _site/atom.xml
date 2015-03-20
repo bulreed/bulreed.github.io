@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>bulreed</title>
+  <link href="" />
+  <link type="application/atom+xml" rel="self" href="/atom.xml" />
+  <updated>2015-03-21T01:25:19+08:00</updated>
+  <id></id>
+  <author>
+    <name>bulreed</name>
+    <uri></uri>
+  </author>
+
+  
+  <entry>
+    <id>/start-github</id>
+    <link type="text/html" rel="alternate" href="/start-github/"/>
+    <title>github 启动之旅</title>
+    <published>2015-03-21T01:03:00+08:00</published>
+    <updated>2015-03-21T01:03:00+08:00</updated>
+    <author>
+      <name>bulreed</name>
+      <uri></uri>
+    </author>
+    <content type="html">&lt;p&gt;今天准备开始在github上记录生活和学习的感悟与经验，过去太懒，不愿动手，也不愿动脑
+得失且不论，努力为之&lt;/p&gt;
+
+&lt;p&gt;这个模板是拷贝github上hustcat.github.io的，仅仅是为了方便，里面涉及到的统计数据，都没有用自己的
+不过也没有关系。&lt;/p&gt;
+
+&lt;p&gt;现在开始吧。&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>/android-video-snapshot</id>
+    <link type="text/html" rel="alternate" href="/android-video-snapshot/"/>
+    <title>Android得到视频缩略图</title>
+    <published>2014-10-23T21:34:00+08:00</published>
+    <updated>2014-10-23T21:34:00+08:00</updated>
+    <author>
+      <name>bulreed</name>
+      <uri></uri>
+    </author>
+    <content type="html">&lt;p&gt;Android得到视频缩略图，可以通过接口类 MediaMetadataRetriever 来实现&lt;/p&gt;
+
+&lt;p&gt;具体可以看代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public Bitmap getVideoThumbnail(String filePath) {
+            Bitmap bitmap = null;
+            MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+            try {
+                retriever.setDataSource(filePath);
+                bitmap = retriever.getFrameAtTime();
+            } 
+            catch(IllegalArgumentException e) {
+                e.printStackTrace();
+            } 
+            catch (RuntimeException e) {
+                e.printStackTrace();
+            } 
+            finally {
+                try {
+                    retriever.release();
+                } 
+                catch (RuntimeException e) {
+                    e.printStackTrace();
+                }
+            }
+            return bitmap;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其中函数getFrameAtTime()有其他重载函数，该函数会随机选择一帧抓取，如果想要指定具体时间的缩略图，可以用函数getFrameAtTime(long timeUs), getFrameAtTime(long timeUs, int option)，具体如何使用可以查doc。&lt;/p&gt;
+</content>
+  </entry>
+  
+</feed>

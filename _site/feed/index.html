@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <rss version="2.0"
+        xmlns:content="http://purl.org/rss/1.0/modules/content/"
+        xmlns:atom="http://www.w3.org/2005/Atom"
+  >
+  <channel>
+    <title>bulreed</title>
+    <link href="http://bulreed.github.io/feed/" rel="self" />
+    <link href="http://bulreed.github.io" />
+    <lastBuildDate>2015-03-21T01:25:19+08:00</lastBuildDate>
+    <webMaster>bulreed@gmail.com</webMaster>
+    
+    <item>
+      <title>github 启动之旅</title>
+      <link href="http://bulreed.github.io/start-github/"/>
+      <pubDate>2015-03-21T01:03:00+08:00</pubDate>
+      <author>bulreed</author>
+      <guid>http://bulreed.github.io/start-github</guid>
+      <content:encoded><![CDATA[<p>今天准备开始在github上记录生活和学习的感悟与经验，过去太懒，不愿动手，也不愿动脑
+得失且不论，努力为之</p>
+
+<p>这个模板是拷贝github上hustcat.github.io的，仅仅是为了方便，里面涉及到的统计数据，都没有用自己的
+不过也没有关系。</p>
+
+<p>现在开始吧。</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Android得到视频缩略图</title>
+      <link href="http://bulreed.github.io/android-video-snapshot/"/>
+      <pubDate>2014-10-23T21:34:00+08:00</pubDate>
+      <author>bulreed</author>
+      <guid>http://bulreed.github.io/android-video-snapshot</guid>
+      <content:encoded><![CDATA[<p>Android得到视频缩略图，可以通过接口类 MediaMetadataRetriever 来实现</p>
+
+<p>具体可以看代码</p>
+
+<pre><code class="java">public Bitmap getVideoThumbnail(String filePath) {
+            Bitmap bitmap = null;
+            MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+            try {
+                retriever.setDataSource(filePath);
+                bitmap = retriever.getFrameAtTime();
+            } 
+            catch(IllegalArgumentException e) {
+                e.printStackTrace();
+            } 
+            catch (RuntimeException e) {
+                e.printStackTrace();
+            } 
+            finally {
+                try {
+                    retriever.release();
+                } 
+                catch (RuntimeException e) {
+                    e.printStackTrace();
+                }
+            }
+            return bitmap;
+}
+</code></pre>
+
+<p>其中函数getFrameAtTime()有其他重载函数，该函数会随机选择一帧抓取，如果想要指定具体时间的缩略图，可以用函数getFrameAtTime(long timeUs), getFrameAtTime(long timeUs, int option)，具体如何使用可以查doc。</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
