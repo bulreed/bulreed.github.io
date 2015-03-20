@@ -1,3 +1,12 @@
-bulreed.github.io
+bulreed's Page(bulreed.github.io)
 =================
-test for github pages
+github 点滴记录
+------
+Start
+
+
+
+
+
+
+模板来自https://hustcat.github.io
